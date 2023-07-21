@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.Ship.Turrets;
 
 namespace InternalAssets.Scripts.Ship
 {
-    public class ShipData
+    public class ShipData : Interfaces.IHealth
     {
         private int _health;
         private List<EquipmentSlot> _equipmentSlots;

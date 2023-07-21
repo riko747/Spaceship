@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.Ship.Items;
@@ -9,7 +8,7 @@ using UnityEngine;
 
 namespace InternalAssets.Scripts.UI
 {
-    public class CreateShip : MonoBehaviour
+    public class CreateSlotForShipUI : MonoBehaviour
     {
         [SerializeField] private TMP_Dropdown typeOfSlotDropdown;
         [SerializeField] private TMP_Dropdown typeOfItemDropdown;
@@ -17,6 +16,15 @@ namespace InternalAssets.Scripts.UI
         [SerializeField] private TMP_Dropdown typeOfAmmoDropDown;
 
         private void Start()
+        {
+            PrepareDropDowns();
+            typeOfItemDropdown.onValueChanged.AddListener(delegate
+            {
+                SetTypesOfWeaponDropDown(typeOfItemDropdown.value);
+            });
+        }
+
+        private void PrepareDropDowns()
         {
             SetTypesOfSlotsToDropDown();
             SetTypesOfItemsToDropDown();
@@ -53,6 +61,11 @@ namespace InternalAssets.Scripts.UI
 
             typeOfItemDropdown.ClearOptions();
             typeOfItemDropdown.AddOptions(typeNames);
+        }
+
+        private void SetTypesOfWeaponDropDown(int value)
+        {
+            
         }
     }
 }
