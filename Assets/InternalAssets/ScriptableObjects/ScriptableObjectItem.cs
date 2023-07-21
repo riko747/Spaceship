@@ -8,8 +8,7 @@ namespace InternalAssets.ScriptableObjects
     [Serializable]
     public class ScriptableObjectItemData
     {
-        public bool hasWeapon;
-        public Enums.Items value;
+        public Enums.Items item;
         public Enums.EquipmentSlotType equipmentSlotType;
     }
 

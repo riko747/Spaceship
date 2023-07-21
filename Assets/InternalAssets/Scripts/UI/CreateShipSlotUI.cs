@@ -46,19 +46,6 @@ namespace InternalAssets.Scripts.UI
                 _shipData.CreateEquipmentSlot(equipmentSlotType);
         }
 
-        /*private void SetTypesOfItemsToDropDown(int index = 0)
-        {
-            if (items == null || items.itemsData == null) return;
-            typeOfItemDropdown.ClearOptions();
-
-            foreach (var item in items.itemsData.Where(item => item.equipmentSlotType.ToString() == typeOfSlotDropdown.options[index].text))
-            {
-                Utilities.AddNewDropDownOption(typeOfItemDropdown, item.value.ToString());
-            }
-
-            typeOfItemDropdown.value = index;
-        }*/
-
         private void OnDestroy() => createSlotsButton.onClick.RemoveListener(InstallSlotsToShip);
     }
 }

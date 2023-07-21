@@ -15,29 +15,19 @@ namespace InternalAssets.Scripts.Ship.Turrets
             EquipmentSlotType = equipmentSlotType;
         }
 
-        public EquipmentSlot InstallInEquipmentSlot(Item item)
+        public void InstallInEquipmentSlot(Item item, Enums.EquipmentSlotType equipmentSlotType)
         {
-            switch (item.GetEquipmentSlotType())
-            {
-                case Enums.EquipmentSlotType.None:
-                    EquipmentSlotType = Enums.EquipmentSlotType.None;
-                    SlotIsBusy = true;
-                    return this;
-                case Enums.EquipmentSlotType.Light:
-                    EquipmentSlotType = Enums.EquipmentSlotType.Light;
-                    SlotIsBusy = true;
-                    return this;
-                case Enums.EquipmentSlotType.Medium:
-                    EquipmentSlotType = Enums.EquipmentSlotType.Medium;
-                    SlotIsBusy = true;
-                    return this;
-                case Enums.EquipmentSlotType.Heavy:
-                    EquipmentSlotType = Enums.EquipmentSlotType.Heavy;
-                    SlotIsBusy = true;
-                    return this;
-                default:
-                    return null;
-            }
+            EquipmentSlotType = equipmentSlotType;
+            SlotItem.Add(item);
+            SlotIsBusy = true;
+        }
+        
+        public void InstallInEquipmentSlots(List<Item> items, Enums.EquipmentSlotType equipmentSlotType)
+        {
+            EquipmentSlotType = equipmentSlotType;
+            foreach (var item in items)
+                SlotItem.Add(item);
+            SlotIsBusy = true;
         }
     }
     

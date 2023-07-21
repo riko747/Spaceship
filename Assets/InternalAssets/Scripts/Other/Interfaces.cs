@@ -7,6 +7,7 @@ namespace InternalAssets.Scripts.Other
         public interface IShipData
         {
             public void CreateEquipmentSlot(Enums.EquipmentSlotType equipmentSlotType);
+            void InstallEquipmentToSlot(Enums.Items itemEnum);
         }
 
         public interface IHealth
