@@ -1,4 +1,3 @@
-using System.Text;
 using InternalAssets.Scripts.Other;
 
 namespace InternalAssets.Scripts.Ship.Items
@@ -8,7 +7,6 @@ namespace InternalAssets.Scripts.Ship.Items
         private int _health;
         
         protected Enums.EquipmentSlotType EquipmentSlotType;
-        protected readonly StringBuilder StringBuilder = new();
         protected abstract void Init();
         
         public int GetHealth() => _health;

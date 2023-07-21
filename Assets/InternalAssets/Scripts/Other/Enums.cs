@@ -4,19 +4,31 @@ namespace InternalAssets.Scripts.Other
     {
         public enum EquipmentSlotType
         {
-            None,
             Light,
             Medium,
-            Heavy
+            Heavy,
+            None
         }
 
         public enum AmmoType
         {
-            DefaultBullet,
-            ArmorPiercingBullet,
-            DefaultRay,
-            EnhancedRay,
-            HybridAmmo
+            MachineGunDefaultBullet,
+            MachineGunArmorPiercingBullet,
+            PlasmaCannonDefaultRay,
+            PlasmaCannonEnhancedRay,
+        }
+        
+        public enum Items
+        {
+            MachineGun,
+            MachineGunPlasmaCannonEnergyShield,
+            MachineGunX2,
+            MachineGunX2PlasmaCannonX2,
+            PlasmaCannon,
+            EnergyShield,
+            HpRegenerator,
+            SmallEngine,
+            LargeEngine
         }
     }
 }

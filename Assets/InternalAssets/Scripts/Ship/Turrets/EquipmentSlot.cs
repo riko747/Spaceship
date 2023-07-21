@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.Ship.Items;
 
@@ -5,11 +6,14 @@ namespace InternalAssets.Scripts.Ship.Turrets
 {
     public class EquipmentSlot
     {
-        private Interfaces.IAmmo _ammunition;
-        
         public bool SlotIsBusy { get; set; }
         public Enums.EquipmentSlotType EquipmentSlotType { get; set; }
-        public Item SlotItem { get; set; }
+        public List<Item> SlotItem { get; set; }
+
+        public EquipmentSlot(Enums.EquipmentSlotType equipmentSlotType)
+        {
+            EquipmentSlotType = equipmentSlotType;
+        }
 
         public EquipmentSlot InstallInEquipmentSlot(Item item)
         {

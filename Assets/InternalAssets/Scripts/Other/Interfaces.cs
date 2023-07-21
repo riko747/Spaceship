@@ -4,11 +4,11 @@ namespace InternalAssets.Scripts.Other
 {
     public static class Interfaces
     {
-        public interface IUISystem
+        public interface IShipData
         {
-            
+            public void CreateEquipmentSlot(Enums.EquipmentSlotType equipmentSlotType);
         }
-        
+
         public interface IHealth
         {
             public int GetHealth();
