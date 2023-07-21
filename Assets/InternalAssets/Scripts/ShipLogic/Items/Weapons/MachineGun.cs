@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using InternalAssets.Scripts.Other;
-using InternalAssets.Scripts.Ship.Items.Bullets;
+using InternalAssets.Scripts.ShipLogic.Items.Bullets;
 
-namespace InternalAssets.Scripts.Ship.Items.Weapons
+namespace InternalAssets.Scripts.ShipLogic.Items.Weapons
 {
     public class MachineGun : Item, Interfaces.IWeapon
     {
@@ -12,10 +12,9 @@ namespace InternalAssets.Scripts.Ship.Items.Weapons
         public int RechargeTime { get; set; }
         public IEnumerable<Interfaces.IAmmo> Ammo { get; set; }
         
-        protected override void Init()
+        protected virtual void Init()
         {
             NumberOfBarrels = 1;
-            EquipmentSlotType = Enums.EquipmentSlotType.Light;
             Ammo = new List<MachineGunBullet>();
         }
 

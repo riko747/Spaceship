@@ -1,27 +1,25 @@
 using System.Collections.Generic;
 using InternalAssets.Scripts.Other;
-using InternalAssets.Scripts.Ship.Items.Bullets;
+using InternalAssets.Scripts.ShipLogic.Items.Bullets;
 
-namespace InternalAssets.Scripts.Ship.Items.Weapons
+namespace InternalAssets.Scripts.ShipLogic.Items.Weapons
 {
-    public class MachineGunX2 : Item, Interfaces.IWeapon
+    public class PlasmaCannon : Item, Interfaces.IWeapon
     {
         public int NumberOfBarrels { get; set; }
         public int RateOfFire { get; set; }
         public int SizeOfClip { get; set; }
         public int RechargeTime { get; set; }
         public IEnumerable<Interfaces.IAmmo> Ammo { get; set; }
-        
-        protected override void Init()
+
+        protected virtual void Init()
         {
-            NumberOfBarrels = 2;
-            EquipmentSlotType = Enums.EquipmentSlotType.Medium;
-            Ammo = new List<MachineGunBullet>();
+            NumberOfBarrels = 1;
+            Ammo = new List<PlasmaCannonRay>();
         }
 
         public override void Upgrade()
         {
-            
         }
     }
 }

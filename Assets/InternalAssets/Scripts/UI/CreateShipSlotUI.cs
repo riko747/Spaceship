@@ -11,7 +11,7 @@ namespace InternalAssets.Scripts.UI
 {
     public class CreateShipSlotUI : MonoBehaviour
     {
-        [Inject] private Interfaces.IShipData _shipData;
+        [Inject] private Interfaces.IShip _ship;
         
         [SerializeField] private List<TMP_Dropdown> typeOfSlotDropdowns;
         [SerializeField] private Button createSlotsButton;
@@ -43,7 +43,7 @@ namespace InternalAssets.Scripts.UI
                          .Select(typeOfSlotDropdown => typeOfSlotDropdown.captionText.text)
                          .Select(selectedValue =>
                              (Enums.EquipmentSlotType)Enum.Parse(typeof(Enums.EquipmentSlotType), selectedValue)))
-                _shipData.CreateEquipmentSlot(equipmentSlotType);
+                _ship.CreateEquipmentSlot(equipmentSlotType);
         }
 
         private void OnDestroy() => createSlotsButton.onClick.RemoveListener(InstallSlotsToShip);

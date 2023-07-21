@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using InternalAssets.ScriptableObjects;
 using InternalAssets.Scripts.Other;
 using TMPro;
@@ -10,7 +11,7 @@ namespace InternalAssets.Scripts.UI
 {
     public class ModifyShipSlotUI : MonoBehaviour
     {
-        [Inject] private Interfaces.IShipData _shipData;
+        [Inject] private Interfaces.IShip _ship;
 
         [SerializeField] private ScriptableObjectItem items;
         [SerializeField] private TMP_Dropdown typeOfItemDropdown;
@@ -34,7 +35,12 @@ namespace InternalAssets.Scripts.UI
 
         private void InstallItemToSlot()
         {
-            //_shipData
+            var selectedIndex = typeOfItemDropdown.value;
+            var selectedValue = typeOfItemDropdown.options[selectedIndex].text;
+            var matchedEnumValue = Enum.GetValues(typeof(Enums.Items))
+                .Cast<Enums.Items>()
+                .FirstOrDefault(e => e.ToString() == selectedValue);
+            _ship.InstallEquipmentToSlot(matchedEnumValue);
         }
 
         private void OnDestroy() => modifySlotButton.onClick.RemoveListener(InstallItemToSlot);

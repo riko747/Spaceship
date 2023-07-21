@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using InternalAssets.Scripts.Other;
-using InternalAssets.Scripts.Ship.Items;
+using InternalAssets.Scripts.ShipLogic.Items;
 
-namespace InternalAssets.Scripts.Ship.Turrets
+namespace InternalAssets.Scripts.ShipLogic.Turrets
 {
     public class EquipmentSlot
     {
         public bool SlotIsBusy { get; set; }
         public Enums.EquipmentSlotType EquipmentSlotType { get; set; }
-        public List<Item> SlotItem { get; set; }
+        public List<Item> SlotItem { get; } = new();
 
         public EquipmentSlot(Enums.EquipmentSlotType equipmentSlotType)
         {
@@ -19,7 +19,8 @@ namespace InternalAssets.Scripts.Ship.Turrets
         {
             EquipmentSlotType = equipmentSlotType;
             SlotItem.Add(item);
-            SlotIsBusy = true;
+            if (equipmentSlotType != Enums.EquipmentSlotType.None)
+                SlotIsBusy = true;
         }
         
         public void InstallInEquipmentSlots(List<Item> items, Enums.EquipmentSlotType equipmentSlotType)
@@ -27,7 +28,8 @@ namespace InternalAssets.Scripts.Ship.Turrets
             EquipmentSlotType = equipmentSlotType;
             foreach (var item in items)
                 SlotItem.Add(item);
-            SlotIsBusy = true;
+            if (equipmentSlotType != Enums.EquipmentSlotType.None)
+                SlotIsBusy = true;
         }
     }
     

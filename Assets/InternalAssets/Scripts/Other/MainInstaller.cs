@@ -1,4 +1,3 @@
-using InternalAssets.Scripts.Ship;
 using Zenject;
 
 namespace InternalAssets.Scripts.Other
@@ -7,7 +6,7 @@ namespace InternalAssets.Scripts.Other
     {
         public override void InstallBindings()
         {
-            Container.Bind<Interfaces.IShipData>().To<ShipData>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<Interfaces.IShip>().To<ShipLogic.Ship>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

@@ -4,10 +4,10 @@ namespace InternalAssets.Scripts.Other
 {
     public static class Interfaces
     {
-        public interface IShipData
+        public interface IShip
         {
-            public void CreateEquipmentSlot(Enums.EquipmentSlotType equipmentSlotType);
             void InstallEquipmentToSlot(Enums.Items itemEnum);
+            public void CreateEquipmentSlot(Enums.EquipmentSlotType equipmentSlotType);
         }
 
         public interface IHealth

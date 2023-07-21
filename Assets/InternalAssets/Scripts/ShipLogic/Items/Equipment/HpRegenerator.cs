@@ -1,14 +1,11 @@
-using InternalAssets.Scripts.Other;
-
-namespace InternalAssets.Scripts.Ship.Items.Equipment
+namespace InternalAssets.Scripts.ShipLogic.Items.Equipment
 {
     public class HpRegenerator : Item
     {
         private int _healthRegenerationPerSecond = 1;
 
-        protected override void Init()
+        protected virtual void Init()
         {
-            EquipmentSlotType = Enums.EquipmentSlotType.None;
         }
 
         public override void Upgrade()

@@ -13,30 +13,21 @@ MonoBehaviour:
   m_Name: ItemData
   m_EditorClassIdentifier: 
   itemsData:
-  - hasWeapon: 1
-    value: 0
+  - item: 0
     equipmentSlotType: 0
-  - hasWeapon: 1
-    value: 1
+  - item: 1
     equipmentSlotType: 2
-  - hasWeapon: 1
-    value: 2
+  - item: 2
     equipmentSlotType: 1
-  - hasWeapon: 1
-    value: 3
+  - item: 3
     equipmentSlotType: 2
-  - hasWeapon: 1
-    value: 4
+  - item: 4
     equipmentSlotType: 0
-  - hasWeapon: 0
-    value: 5
+  - item: 5
     equipmentSlotType: 1
-  - hasWeapon: 0
-    value: 6
+  - item: 6
     equipmentSlotType: 3
-  - hasWeapon: 0
-    value: 7
+  - item: 7
     equipmentSlotType: 1
-  - hasWeapon: 0
-    value: 8
+  - item: 8
     equipmentSlotType: 2
