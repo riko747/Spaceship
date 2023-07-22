@@ -1340,7 +1340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2317ce984c661e408ad5897659115ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackShip: {fileID: 1131695493441372666}
+  attackShipWithMachineGunButton: {fileID: 1131695493441372666}
+  attackShipWithPlasmaCannonButton: {fileID: 6532474524107433219}
   attackEquipment: {fileID: 283344950620777550}
   damageCount: 10
 --- !u!1 &8934403334671686738

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using InternalAssets.Scripts.ShipLogic;
 using InternalAssets.Scripts.ShipLogic.Turrets;
 using InternalAssets.Scripts.UI;
 
@@ -14,16 +15,17 @@ namespace InternalAssets.Scripts.Other
         
         public interface IShip
         {
+            ShipData ShipData { get; set; }
             EquipmentManager EquipmentManager { get; set; }
-            void DamageTheShip(int damageCount);
+            void DamageTheShip(int damageCount, bool isPlasmaCannon);
         }
 
         public interface IHealth
         {
-            int GetHealth();
+            int GetCurrentHealth();
             void Init();
-            void IncreaseHealth(int healthPoints);
-            void DecreaseHealth(int healthPoints);
+            void IncreaseTotalHealth(int healthPoints);
+            void DecreaseCurrentHealth(int healthPoints);
         }
 
         public interface IUpgradeable

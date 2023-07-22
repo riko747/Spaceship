@@ -17,6 +17,8 @@ namespace InternalAssets.Scripts.ShipLogic.Items.Equipment
             base.Init();
         }
 
+        public int CalculateCounteringDamage(int damage) => damage - _counteringDamage * damage / 100;
+
         public override void Upgrade()
         {
             base.Upgrade();

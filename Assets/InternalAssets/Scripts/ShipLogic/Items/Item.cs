@@ -26,9 +26,9 @@ namespace InternalAssets.Scripts.ShipLogic.Items
             Upgradeables.AddToUpgradeables(this);
         }
 
-        public int GetHealth() => Health;
-        public void IncreaseHealth(int healthPoints) => Health += healthPoints;
-        public void DecreaseHealth(int healthPoints) => Health -= healthPoints;
+        public int GetCurrentHealth() => Health;
+        public void IncreaseTotalHealth(int healthPoints) => Health += healthPoints;
+        public void DecreaseCurrentHealth(int healthPoints) => Health -= healthPoints;
 
         public virtual void Upgrade()
         {

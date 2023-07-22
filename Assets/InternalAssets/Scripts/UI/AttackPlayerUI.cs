@@ -9,19 +9,21 @@ namespace InternalAssets.Scripts.UI
     {
         [Inject] private Interfaces.IShip _ship;
 
-        [SerializeField] private Button attackShip;
+        [SerializeField] private Button attackShipWithMachineGunButton;
+        [SerializeField] private Button attackShipWithPlasmaCannonButton;
         [SerializeField] private Button attackEquipment;
         [SerializeField] private int damageCount;
 
         private void Start()
         {
-            attackShip.onClick.AddListener(() => OnAttackShip(damageCount));
+            attackShipWithMachineGunButton.onClick.AddListener(() => OnAttackShip(damageCount, false));
+            attackShipWithPlasmaCannonButton.onClick.AddListener(() => OnAttackShip(damageCount, true));
             attackEquipment.onClick.AddListener(() => OnAttackEquipment(damageCount));
         }
 
-        private void OnAttackShip(int damage)
+        private void OnAttackShip(int damage, bool isPlasmaCannon)
         {
-            _ship.DamageTheShip(damage);
+            _ship.DamageTheShip(damage, isPlasmaCannon);
         }
 
         private void OnAttackEquipment(int damage)
@@ -31,7 +33,8 @@ namespace InternalAssets.Scripts.UI
 
         private void OnDestroy()
         {
-            attackShip.onClick.RemoveListener(() => OnAttackShip(damageCount));
+            attackShipWithMachineGunButton.onClick.RemoveListener(() => OnAttackShip(damageCount,false));
+            attackShipWithPlasmaCannonButton.onClick.RemoveListener(() => OnAttackShip(damageCount,true));
             attackEquipment.onClick.RemoveListener(() => OnAttackEquipment(damageCount));
         }
     }

@@ -126,10 +126,10 @@ namespace InternalAssets.Scripts.ShipLogic.Turrets
             {
                 foreach (var item in equipmentSlot.SlotItem)
                 {
-                    item.DecreaseHealth(damage);
+                    item.DecreaseCurrentHealth(damage);
                     Debug.Log("Item: " + item.ItemType + " damaged on " + damage + "points");
                 }
-                Debug.Log("Equipment current health is: " + string.Join(", ", equipmentSlot.SlotItem.Select(currentItem => currentItem.GetHealth())) + " points");   
+                Debug.Log("Equipment current health is: " + string.Join(", ", equipmentSlot.SlotItem.Select(currentItem => currentItem.GetCurrentHealth())) + " points");   
             }
         }
     }
