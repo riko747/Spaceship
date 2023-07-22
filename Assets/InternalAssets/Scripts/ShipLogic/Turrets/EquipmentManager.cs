@@ -6,7 +6,6 @@ using InternalAssets.Scripts.ShipLogic.Items.Equipment;
 using InternalAssets.Scripts.ShipLogic.Items.Equipment.Engines;
 using InternalAssets.Scripts.ShipLogic.Items.Weapons;
 using UnityEngine;
-using Zenject;
 
 namespace InternalAssets.Scripts.ShipLogic.Turrets
 {

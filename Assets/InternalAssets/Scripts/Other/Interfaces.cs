@@ -30,7 +30,7 @@ namespace InternalAssets.Scripts.Other
 
         public interface IUpgradeable
         {
-            abstract void Upgrade();
+            void Upgrade();
         }
         
         public interface IAmmo
@@ -45,7 +45,7 @@ namespace InternalAssets.Scripts.Other
             int RateOfWeaponFire { get; set; }
             int SizeOfWeaponClip { get; set; }
             int WeaponRechargeTime { get; set; }
-            IEnumerable<Interfaces.IAmmo> Ammo { get; set; }
+            IEnumerable<IAmmo> Ammo { get; set; }
         }
     }
 }

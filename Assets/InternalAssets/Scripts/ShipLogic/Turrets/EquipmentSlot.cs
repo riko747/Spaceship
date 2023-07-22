@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.ShipLogic.Items;
-using Zenject;
 
 namespace InternalAssets.Scripts.ShipLogic.Turrets
 {

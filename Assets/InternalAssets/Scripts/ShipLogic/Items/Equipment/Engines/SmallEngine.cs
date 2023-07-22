@@ -1,4 +1,3 @@
-using System;
 using InternalAssets.Scripts.Other;
 
 namespace InternalAssets.Scripts.ShipLogic.Items.Equipment.Engines

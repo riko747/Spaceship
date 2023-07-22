@@ -8,8 +8,7 @@ namespace InternalAssets.Scripts.UI
     public class UpgradeAllUI : MonoBehaviour
     {
         [Inject] private Interfaces.IUiSystem _uiSystem;
-        [Inject] private Interfaces.IShip _ship;
-        
+
         [SerializeField] private Button upgradeAllButton;
 
         private void Start()

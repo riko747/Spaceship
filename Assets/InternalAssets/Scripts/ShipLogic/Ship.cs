@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.ShipLogic.Items.Equipment;
@@ -41,21 +42,20 @@ namespace InternalAssets.Scripts.ShipLogic
 
             var shipHasEnergyShield = false;
             var shipHasHpRegenerator = false;
-            HpRegenerator hpRegenerator = null;
+            var hpRegenerators = new List<HpRegenerator>();
 
             foreach (var item in shipData.GetEquipmentSlots().Where(slot => slot.SlotItem != null).SelectMany(slot => slot.SlotItem))
             {
                 switch (item.ItemType)
                 {
                     case Enums.Items.EnergyShield when item is EnergyShield energyShield:
-                    {
                         if (isPlasmaCannon)
                             damageCount = energyShield.CalculateCounteringDamage(damageCount);
                         shipHasEnergyShield = true;
                         break;
-                    }
+
                     case Enums.Items.HpRegenerator when item is HpRegenerator currentHpRegenerator:
-                        hpRegenerator = currentHpRegenerator;
+                        hpRegenerators.Add(currentHpRegenerator);
                         shipHasHpRegenerator = true;
                         break;
                 }
@@ -64,10 +64,10 @@ namespace InternalAssets.Scripts.ShipLogic
             shipData.DecreaseCurrentHealth(damageCount);
             Debug.Log("Ship damaged on: " + damageCount + " points ");
 
-            if (!shipHasEnergyShield || !shipHasHpRegenerator) return;
+            var totalHpRegeneratorHp = hpRegenerators.Sum(hpRegenerator => hpRegenerator.GetHealthRegenerationPercentage());
             
-            StopAllCoroutines();
-            StartCoroutine(RegenerateHealth(hpRegenerator.GetHealthRegenerationPercentage()));
+            if (shipHasEnergyShield && shipHasHpRegenerator)
+                StartCoroutine(RegenerateHealth(totalHpRegeneratorHp));
         }
         
         private IEnumerator RegenerateHealth(int healthRegenerationPercentage)

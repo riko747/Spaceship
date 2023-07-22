@@ -1,4 +1,3 @@
-using InternalAssets.Scripts.Other;
 using UnityEngine;
 
 namespace InternalAssets.Scripts.ShipLogic.Items.Equipment.Engines

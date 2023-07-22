@@ -1,14 +1,11 @@
 using System;
 using InternalAssets.Scripts.Other;
 using UnityEngine;
-using Zenject;
 
 namespace InternalAssets.Scripts.ShipLogic.Items
 {
     public class Item : Interfaces.IHealth, Interfaces.IUpgradeable
     {
-        [Inject] private Interfaces.IShip _ship;
-        
         private int _health;
         private Enums.Items _itemType;
 

@@ -1,13 +1,10 @@
-using System.Collections;
 using InternalAssets.Scripts.Other;
 using UnityEngine;
-using Zenject;
 
 namespace InternalAssets.Scripts.ShipLogic.Items.Equipment
 {
     public class HpRegenerator : Item
     {
-        [Inject] private Interfaces.IShip _ship;
         private int _healthRegenerationPercentage;
 
         protected override int Health { get; set; }
@@ -15,7 +12,7 @@ namespace InternalAssets.Scripts.ShipLogic.Items.Equipment
 
         public override void Init()
         {
-            _healthRegenerationPercentage = 20;
+            _healthRegenerationPercentage = 10;
             ItemType = Enums.Items.HpRegenerator;
             base.Init();
         }
@@ -25,7 +22,7 @@ namespace InternalAssets.Scripts.ShipLogic.Items.Equipment
         public override void Upgrade()
         {
             base.Upgrade();
-            _healthRegenerationPercentage += 5;
+            _healthRegenerationPercentage += 2;
             Debug.Log("HP per second of " + ItemType + " now is " + _healthRegenerationPercentage);
         }
     }
