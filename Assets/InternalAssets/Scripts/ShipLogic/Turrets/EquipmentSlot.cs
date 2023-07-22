@@ -7,8 +7,6 @@ namespace InternalAssets.Scripts.ShipLogic.Turrets
 {
     public class EquipmentSlot
     {
-        [Inject] private Interfaces.IUpgradeableInterfaceManager _upgradeableInterfaceManager;
-        
         public bool SlotIsBusy { get; set; }
         public Enums.EquipmentSlotType EquipmentSlotType { get; set; }
         public List<Item> SlotItem { get; } = new();
@@ -23,7 +21,6 @@ namespace InternalAssets.Scripts.ShipLogic.Turrets
             EquipmentSlotType = equipmentSlotType;
             SlotItem.Add(item);
             item.Init();
-            _upgradeableInterfaceManager.AddUpgradeable(item);
             SlotIsBusy = true;
         }
 
@@ -34,7 +31,6 @@ namespace InternalAssets.Scripts.ShipLogic.Turrets
             {
                 SlotItem.Add(item);
                 item.Init();
-                _upgradeableInterfaceManager.AddUpgradeable(item);
             }
 
             SlotIsBusy = true;
@@ -44,7 +40,6 @@ namespace InternalAssets.Scripts.ShipLogic.Turrets
         {
             SlotItem.Add(item);
             item.Init();
-            _upgradeableInterfaceManager.AddUpgradeable(item);
         }
     }
     

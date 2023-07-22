@@ -7,8 +7,8 @@ namespace InternalAssets.Scripts.UI
 {
     public class UpgradeAllUI : MonoBehaviour
     {
-        [Inject] private Interfaces.IUpgradeableInterfaceManager _upgradeableInterfaceManager;
         [Inject] private Interfaces.IUiSystem _uiSystem;
+        [Inject] private Interfaces.IShip _ship;
         
         [SerializeField] private Button upgradeAllButton;
 
@@ -20,7 +20,7 @@ namespace InternalAssets.Scripts.UI
 
         private void UpgradeAll()
         {
-            var upgradeables = _upgradeableInterfaceManager.GetAllUpgradeables();
+            var upgradeables = Upgradeables.GetUpgradeables();
             foreach (var upgradeable in upgradeables)
                 upgradeable.Upgrade();
         }

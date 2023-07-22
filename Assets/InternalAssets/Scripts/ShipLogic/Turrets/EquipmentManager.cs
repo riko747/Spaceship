@@ -12,7 +12,6 @@ namespace InternalAssets.Scripts.ShipLogic.Turrets
 {
     public class EquipmentManager
     {
-        [Inject] private Interfaces.IUpgradeableInterfaceManager _upgradeableInterfaceManager;
         private readonly ShipData _shipData;
 
         public EquipmentManager(ShipData shipData) => _shipData = shipData;

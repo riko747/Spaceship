@@ -6,12 +6,6 @@ namespace InternalAssets.Scripts.Other
 {
     public static class Interfaces
     {
-        public interface IUpgradeableInterfaceManager
-        {
-            void AddUpgradeable(IUpgradeable currentInterface);
-            List<Interfaces.IUpgradeable> GetAllUpgradeables();
-        }
-        
         public interface IUiSystem
         {
             CreateShipSlotUI GetCreateShipSlotUI();

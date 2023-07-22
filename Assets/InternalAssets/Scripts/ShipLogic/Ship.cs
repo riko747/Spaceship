@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.ShipLogic.Turrets;
 using UnityEngine;
@@ -7,15 +8,14 @@ namespace InternalAssets.Scripts.ShipLogic
 {
     public class Ship : MonoBehaviour, Interfaces.IUpgradeable, Interfaces.IShip
     {
-        [Inject] private Interfaces.IUpgradeableInterfaceManager _upgradeableInterfaceManager;
-        
         [SerializeField] private ShipData shipData;
-        
+
         public EquipmentManager EquipmentManager { get; set; }
 
         private void Start()
         {
-            _upgradeableInterfaceManager.AddUpgradeable(this);
+            Upgradeables.CreateNewUpgradeables();
+            Upgradeables.AddToUpgradeables(this);
             EquipmentManager = new EquipmentManager(shipData);
         }
 

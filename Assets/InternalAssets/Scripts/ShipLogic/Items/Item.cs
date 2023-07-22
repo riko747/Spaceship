@@ -7,6 +7,8 @@ namespace InternalAssets.Scripts.ShipLogic.Items
 {
     public class Item : Interfaces.IHealth, Interfaces.IUpgradeable
     {
+        [Inject] private Interfaces.IShip _ship;
+        
         private int _health;
         private Enums.Items _itemType;
 
@@ -21,6 +23,7 @@ namespace InternalAssets.Scripts.ShipLogic.Items
         public virtual void Init()
         {
             Health = 100;
+            Upgradeables.AddToUpgradeables(this);
         }
 
         public int GetHealth() => Health;

@@ -9,7 +9,6 @@ namespace InternalAssets.Scripts.Other
         {
             Container.Bind<Interfaces.IShip>().To<ShipLogic.Ship>().FromComponentInHierarchy().AsSingle();
             Container.Bind<Interfaces.IUiSystem>().To<UISystem>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<Interfaces.IUpgradeableInterfaceManager>().To<UpgradeableInterfaceManager>().FromComponentInHierarchy().AsSingle();
         }
     }
 }
