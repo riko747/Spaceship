@@ -1,20 +1,35 @@
 using System.Collections.Generic;
+using InternalAssets.Scripts.ShipLogic.Turrets;
+using InternalAssets.Scripts.UI;
 
 namespace InternalAssets.Scripts.Other
 {
     public static class Interfaces
     {
+        public interface IUpgradeableInterfaceManager
+        {
+            void AddUpgradeable(IUpgradeable currentInterface);
+            List<Interfaces.IUpgradeable> GetAllUpgradeables();
+        }
+        
+        public interface IUiSystem
+        {
+            CreateShipSlotUI GetCreateShipSlotUI();
+            ModifyShipSlotUI GetModifyShipSlotUI();
+        }
+        
         public interface IShip
         {
-            void InstallEquipmentToSlot(Enums.Items itemEnum);
-            public void CreateEquipmentSlot(Enums.EquipmentSlotType equipmentSlotType);
+            EquipmentManager EquipmentManager { get; set; }
+            void DamageTheShip(int damageCount);
         }
 
         public interface IHealth
         {
-            public int GetHealth();
-            public void IncreaseHealth(int healthPoints);
-            public void DecreaseHealth(int healthPoints);
+            int GetHealth();
+            void Init();
+            void IncreaseHealth(int healthPoints);
+            void DecreaseHealth(int healthPoints);
         }
 
         public interface IUpgradeable
@@ -30,10 +45,10 @@ namespace InternalAssets.Scripts.Other
 
         public interface IWeapon
         {
-            int NumberOfBarrels { get; set; }
-            int RateOfFire { get; set; }
-            int SizeOfClip { get; set; }
-            int RechargeTime { get; set; }
+            int NumberOfWeaponBarrels { get; set; }
+            int RateOfWeaponFire { get; set; }
+            int SizeOfWeaponClip { get; set; }
+            int WeaponRechargeTime { get; set; }
             IEnumerable<Interfaces.IAmmo> Ammo { get; set; }
         }
     }

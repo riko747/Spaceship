@@ -6,8 +6,7 @@ namespace InternalAssets.Scripts.Other
         {
             Light,
             Medium,
-            Heavy,
-            None
+            Heavy
         }
 
         public enum AmmoType

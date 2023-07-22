@@ -12,6 +12,7 @@ namespace InternalAssets.Scripts.UI
     public class ModifyShipSlotUI : MonoBehaviour
     {
         [Inject] private Interfaces.IShip _ship;
+        [Inject] private Interfaces.IUiSystem _uiSystem;
 
         [SerializeField] private ScriptableObjectItem items;
         [SerializeField] private TMP_Dropdown typeOfItemDropdown;
@@ -21,6 +22,13 @@ namespace InternalAssets.Scripts.UI
         {
             SetTypesOfItemsToDropDown();
             modifySlotButton.onClick.AddListener(InstallItemToSlot);
+            _uiSystem.GetCreateShipSlotUI().SlotsCreated += SetModifyButtonActive;
+        }
+
+        private void SetModifyButtonActive()
+        {
+            modifySlotButton.interactable = true;
+            _uiSystem.GetCreateShipSlotUI().SlotsCreated -= SetModifyButtonActive;
         }
 
         private void SetTypesOfItemsToDropDown()
@@ -28,9 +36,7 @@ namespace InternalAssets.Scripts.UI
             if (items == null || items.itemsData == null) return;
             typeOfItemDropdown.ClearOptions();
             foreach (var itemType in items.itemsData)
-            {
                 Utilities.AddNewDropDownOption(typeOfItemDropdown, itemType.item.ToString());
-            }
         }
 
         private void InstallItemToSlot()
@@ -40,7 +46,7 @@ namespace InternalAssets.Scripts.UI
             var matchedEnumValue = Enum.GetValues(typeof(Enums.Items))
                 .Cast<Enums.Items>()
                 .FirstOrDefault(e => e.ToString() == selectedValue);
-            _ship.InstallEquipmentToSlot(matchedEnumValue);
+            _ship.EquipmentManager.InstallEquipmentToSlot(matchedEnumValue);
         }
 
         private void OnDestroy() => modifySlotButton.onClick.RemoveListener(InstallItemToSlot);
